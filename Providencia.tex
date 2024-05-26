@@ -1,0 +1,197 @@
+\documentclass[12pt, a4paper, twoside]{article}
+\usepackage[a4paper, total={17cm, 22.5cm}, left=3cm, top=3cm, right=3cm, bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage[style=iso-numeric]{biblatex}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage[letterspace=450]{microtype}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{svg, float}
+\usepackage{caption}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[shortlabels]{enumitem}
+\usepackage{lastpage}
+\usepackage{atbegshi}
+\usepackage{textpos}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\graphicspath{{../svg}}
+\setlength{\columnsep}{0.4cm}
+\setlength{\headheight}{40pt}
+\setlength{\parskip}{0.2cm}
+%\setlength\parindent{0pt}
+%\renewcommand{\baselinestretch}{1.5}
+%\renewcommand{\footnotesize}{\fontsize{10pt}{10pt}\selectfont}
+\hyphenpenalty=10000
+\hypersetup{colorlinks=true, urlcolor=cyan, citecolor=black, linkcolor=black, filecolor=black}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@outputpage{\headheight}{\ifodd\count\z@ 40pt\else 0pt\fi}{}{}
+\makeatother
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancyhead[EL]{
+    \begin{textblock}{1}(-1.6,0)
+        \begin{turn}{90}
+            {\footnotesize DATOS DE LA ENTIDAD QUE EMITE, NIF NIF, DIRECCIÓN DIRECCIÓN DIRECCIÓN}
+        \end{turn}
+    \end{textblock}
+}
+\fancyhead[OL]{
+    \hspace{-27pt}
+    \textbf{LA ENTIDAD}\\
+    \hspace{-27pt}\hspace{72pt}
+    {\footnotesize DE}\\
+    \vspace{2pt}
+    \hspace{-33pt}
+    {\Large\lsstyle\textbf{LUGAR}}\\
+    \hspace{-27pt}\hspace{63pt}
+    {\footnotesize LUGAR2}
+
+    \begin{textblock}{1}(-1.6,-0.6)
+        \begin{turn}{90}
+            {\footnotesize DATOS DE LA ENTIDAD QUE EMITE, NIF NIF, DIRECCIÓN DIRECCIÓN DIRECCIÓN}
+        \end{turn}
+    \end{textblock}
+}
+\fancyfoot[C]{
+}
+
+
+\rfoot{Página \thepage\hspace{1pt} de \pageref{LastPage}}
+\setlength{\parindent}{0pt}
+
+\title{Título}
+\author{Autor}
+\date{Fecha}
+\bibliography{bibtex}
+
+\begin{document}
+\begin{center}
+    \textbf{P R O V I D E N C I A\hspace{10pt}   D E\hspace{10pt}   A P R E M I O}
+\end{center}
+\begin{multicols}{2}
+    \textbf{OBLIGADO AL PAGO:}
+
+    NOMBRE O RAZÓN SOCIAL: \textbf{!nombre}
+
+    NIF: \textbf{!NIF}
+
+    DOMICILIO: \textbf{!domicilio}
+
+    \columnbreak
+
+    \textbf{DEUDA:}
+
+    CONCEPTO: \textbf{!concepto}
+
+    PERIODO: \textbf{!periodo}
+
+    EXPEDIENTE: \textbf{!expdte}
+
+    NÚMERO: \textbf{!numero}
+\end{multicols}
+
+Finalizado el plazo de pago voluntario de 30 días previsto en el artículo 13.5 de los Estatutos, de las cuotas arriba señaladas, previo requerimiento conforme al artículo 13.6; no habiéndose satisfecho la cantidad adeudada; de acuerdo con los artículos 163 y siguientes de la Ley 58/2003, de 17 de diciembre, General Tributaria, y los artículos 69 y siguientes del Reglamento General de Recaudación, aprobado por Real Decreto 939/2005, de 29 de julio,
+\begin{center}
+    \textbf{ACUERDO}
+\end{center}
+\textbf{PRIMERO. - } Dictar la presente \textbf{PROVIDENCIA DE APREMIO}, teniéndose por incoado el procedimiento de apremio contra la deuda expresada.
+
+\textbf{SEGUNDO. - }  Liquidar, conforme al artículo 28.3 de la Ley 58/2003, de 17 de diciembre, General Tributaria, el recargo de apremio ordinario del 20\%.
+
+\textbf{TERCERO. -} Requerirle al pago del importe adeudado que se relaciona a continuación:
+
+\begin{center}
+    \begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|}
+        \hline
+        \textbf{PRINCIPAL} & \textls[-130]{\textbf{RECARGO 20\%}} & \textbf{INTERESES} & \textbf{COSTAS} & \textbf{TOTAL}\\
+        \hline
+        !principal & !recargo20 & !intereses & !costas & !recargoyTotal \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+Intereses a \emph{!fechaInteres}.
+
+Sin perjuicio de ello, se le participa:
+\begin{enumerate}
+    \item Que resultará de aplicación el recargo del 10\% (!recargo10) en vez del 20\% si ingresa el importe del principal más el recargo mismo del 10\% en los plazos abajo indicados.
+    \item Si ya hubiere ingresado la cantidad adeudada como principal con anterioridad a la notificación de la presente, será exigible el recargo del 5\% (!recargo05), que deberá ingresar en los plazos señalados.
+    \item Si ya hubiere ingresado el importe del principal y el recargo ejecutivo a la fecha de notificación de la presente, la deuda habrá quedado saldada.
+\end{enumerate}
+
+Igualmente, se le hace saber que el principal pendiente devengará intereses de demora (actualmente fijados en un 4,0625\%) desde la fecha de inicio del periodo ejecutivo hasta la fecha de su ingreso. No obstante, no se exigirán los intereses de demora devengados en el caso de que se beneficie del recargo de apremio reducido del 10\% o del recargo ejecutivo del 5\%. Si se produjeren costas en el procedimiento, se le exigirá su importe.
+
+\textbf{PLAZOS DE PAGO:} Se deberá proceder al pago de la deuda en los siguientes plazos:
+\begin{enumerate}
+    \item Si se notifica la providencia la primera quincena del mes, el plazo de pago finaliza el día 20 del mismo mes.
+    \item Si se notifica la providencia entre el 16 y el último día del mes, el plazo de pago finaliza el día 5 del mes siguiente.
+\end{enumerate}
+
+Si el último día fuese inhábil, se extenderá el plazo de pago al día hábil inmediatamente posterior.
+
+\textbf{ADVERTENCIA}, en caso de no realizarse el ingreso del importe total de la deuda pendiente dentro del plazo anterior, incluido el recargo de apremio, se procederá al embargo de sus bienes o a la ejecución de las garantías existentes para el cobro de la deuda con inclusión del recargo de apremio ordinario y de los intereses de demora que se devenguen hasta la fecha de cancelación de la deuda.
+
+\textls[-30]{\setstretch{0.9}
+\hspace{30pt} Notifíquese el presente ACUERDO haciéndole saber que contra este, que pone fin a la vía administrativa, cabe, potestativamente y con carácter previo, RECURSO DE REPOSICIÓN ante el mismo órgano que lo dictó, en el plazo de UN MES desde su adopción conforme a los artículos 222 y siguientes de la Ley 58/2003, de 17 de diciembre, General Tributaria; o bien podrá
+interponer, directamente, RECURSO CONTENCIOSO-ADMINISTRATIVO ante los Juzgados de lo Contencioso-Administrativo de la provincia de AAAAAAA en el plazo de DOS MESES, de conformidad con lo establecido en los artículos 25, 26, 45 y 46 de la Ley 29/1998, de 13 de julio, reguladora de la Jurisdicción Contencioso-administrativa.}
+
+\begin{center}
+    En xxxxxx, a \today
+
+    \textbf{EL PLENO DEL AYUNTAMIENTO DE AAAAAAA}
+
+    P.D. (Acuerdo de XX/XX/XXXX, B.O.X. N.º XX, XX/XX/XXXX)
+\end{center}
+\begin{multicols}{2}
+    \begin{center}
+        \textbf{V.º.B.º}\\
+        \vspace{10pt}
+        \textbf{EL PRESIDENTE}\\
+        \vspace{60pt}
+        \textbf{\textsc{AAAAAAAAAAAAAAAAAAAAAAA}}        
+    \end{center}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[xshift=25mm,yshift=-165mm,anchor=north west] at (current page.north west){%
+        \includegraphics[scale=1.3]{./path/to.png}};
+    \end{tikzpicture}
+
+    \columnbreak
+    
+    \begin{center}
+        \textbf{}\\
+        \vspace{10pt}
+        \textbf{EL SECRETARIO}\\
+        \vspace{60pt}
+        \textbf{\textsc{AAAAAAAAAAAAAAAAAAAAAAAAAAAA}}
+    \end{center}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[xshift=115mm,yshift=-165mm,anchor=north west,rotate=-8] at (current page.north west){
+        \includegraphics[scale=1.2]{./path/to.png}};
+    \end{tikzpicture}
+\end{multicols}
+\vspace{-40pt}
+\textls[-30]{\setstretch{0.9}En cumplimiento de lo previsto estatutariamente, acompañan a la presente certificados de deuda expresivos de las cuotas impagadas expedidos por el secretario y rubricados por este.}
+
+\textbf{LUGAR DE INGRESO:} En la cuenta corriente \textbf{IBAN IBAN IBAN}.
+
+\textls[-30]{\setstretch{0.9}\textbf{APLAZAMIENTO Y FRACCIONAMIENTO:} El pago de la deuda podrá aplazarse o fraccionarse a solicitud del obligado cuando su situación económico-financiera le impida, de forma transitoria, efectuar el pago en los plazos establecidos. No obstante, no serán aplazables o fraccionables las deudas en los supuestos recogidos en el artículo 65 de la Ley General Tributaria y en los demás supuestos establecidos en la normativa específica aplicable.}
+
+\textbf{SUSPENSIÓN:} La suspensión del procedimiento se producirá en los casos y condiciones previstos en la normativa vigente.
+
+\end{document}
